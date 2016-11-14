@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="text" id="user">
+	<br>
+	<br>
+	<input type="password" id="pass">
+	<br>
+	<br>
+	<label for="check"><input type="checkbox" id="check">5天免登录</label>
+	<br>
+	<br>
+	<input type="button" value="登陆" id="login">
+	<script type="text/javascript" src="cookie.js"></script>
+	<script type="text/javascript">
+	var user = document.getElementById('user');
+	var pass = document.getElementById('pass');
+	var check = document.getElementById('check');
+	var login = document.getElementById('login');
+	var users = ['leo','zMouse','duoduo','laowang'];
+	
+	login.onclick = function(){
+		var value = user.value;
+
+		if(inArr(users,value)!=-1){
+			if(check.checked){
+				setCookie('name',value,5);
+			}else{
+				setCookie('name',value);
+			}
+			
+			window.location.href = '1.html';
+		}
+	};
+
+	function inArr(arr,s){
+		for(var i=0;i<arr.length;i++){
+			if(arr[i] == s){
+				return i;
+			}
+		}
+		return -1;
+	}
+	</script>
+</body>
+</html>

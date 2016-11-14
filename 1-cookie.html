@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+	/*
+		
+		cookie:
+			用来存储一些用户信息（比如用户名）
+
+		设置cookie的时候有的浏览器必须是访问服务器上的网页才能设置cookie
+
+		cookie本身是有时效性的，如果没有设置cookie过期时间，那么浏览器会在关闭窗口的时候过期	
+
+		document.cookie 获取操作
+
+		document.cookie = 'key1=value1; key2=value2';  设置操作
+
+		cookie的大小：
+			cookie的大小受浏览器影响，每个浏览器所能存储大小是不同的。如果存储的信息超出了浏览器限制的大小，一般来说新设置的cookie会替换掉旧的cookie信息。
+
+			当我们的网页被浏览器打开时，当前网页记录的cookie会随着http请求发送给后端。
+	*/
+	var date = new Date();
+
+	// date.setDate(date.getDate()+1);
+
+	// document.cookie = 'name=laowang; expires='+date.toUTCString();
+
+	console.log(document.cookie);
+	</script>
+</body>
+</html>

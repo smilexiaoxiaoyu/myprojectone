@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul>
+		<li>羽绒服</li>
+		<li>帽子</li>
+		<li>手套</li>
+		<li>围巾</li>
+		<li>鞋子</li>
+	</ul>
+	<script type="text/javascript">
+	/*document.onclick = function(){
+		localStorage.setItem('age','36');
+	};*/
+
+	var list = document.getElementsByTagName('ul')[0];
+	var arr = [];
+
+	list.onclick = function(ev){
+		arr.push(ev.target.innerHTML);
+		var set = new Set(arr);
+		localStorage.setItem('list',JSON.stringify([...set]));
+	};
+	</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul>
+		
+	</ul>
+	<script type="text/javascript">
+	/*
+	storage:
+		当localStorage发生变化时触发
+
+		event.oldValue修改前的值
+		event.newValue修改后的值
+		event.key 当前修改的key值
+		
+	*/
+	var ul = document.getElementsByTagName('ul')[0];
+
+	fn();
+	window.addEventListener('storage',fn, false);
+
+	
+
+	 function fn(ev){
+		var str = '';
+		// var arr = JSON.parse(ev.newValue);
+		var arr = JSON.parse(localStorage.getItem('list'))||[];
+
+
+		for(var i=0;i<arr.length;i++){
+			str +="<li>"+arr[i]+"</li>";
+		}
+		ul.innerHTML = str;
+		// console.log(ev);
+	}
+	</script>
+</body>
+</html>

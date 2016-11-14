@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+	/*
+		cookie的key值是唯一的，如果重复后边覆盖前边。
+		
+	*/
+
+	var setCookie = function(key,value,expires){
+		var date = new Date();
+		date.setDate(date.getDate()+expires);
+		document.cookie = key+'='+value+'; expires='+date.toUTCString();
+	};
+
+	var getCookie = function(key){
+
+		var cookies = document.cookie.split(';');
+		
+		for(var i=0;i<cookies.length;i++){
+			var cookie = cookies[i].split('=');
+			if(cookie[0].trim() == key){
+				return cookie[1];
+			}
+		}
+	};
+	var remove = function(key){
+		setCookie(key,'123',-1);
+	};
+
+	// setCookie('age',18,1);
+
+	// console.log(getCookie('sex'));
+	remove('age');
+	</script>
+</body>
+</html>
